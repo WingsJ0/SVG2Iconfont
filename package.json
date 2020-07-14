@@ -1,0 +1,19 @@
+{
+  "name": "svg2iconfont",
+  "version": "0.0.0",
+  "description": "SVG转Iconfont工具",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc --watch"
+  },
+  "bin": {
+    "svg2iconfont": "./bin/www"
+  },
+  "author": "WingsJ",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^14.0.23",
+    "typescript": "^3.9.6"
+  }
+}
