@@ -9,9 +9,10 @@ enum Format { svg, ttf, eot, woff2, woff }
 /* public */
 
 interface Option {
-  input?: string,
-  output?: string,
-  format?: Format[]
+  input: string,
+  output: string,
+  format: Format[],
+  prefix: string
 }
 
 /* construct */

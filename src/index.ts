@@ -7,6 +7,12 @@
 import * as Path from 'path'
 import Option, { Format } from './type/Option'
 
+const defaultOption: Option = {
+  input: './',
+  output: './',
+  format: [Format.svg, Format.ttf, Format.eot, Format.woff2, Format.woff],
+  prefix: ''
+}
 
 /* public */
 
@@ -15,9 +21,7 @@ import Option, { Format } from './type/Option'
  * @param option 选项
  */
 function main(option: Option) {
-  let input: string = option.input || './'
-  let output: string = option.output || './'
-  let format: Format[] = option.format || [Format.svg, Format.ttf, Format.eot, Format.woff2, Format.woff]
+  let { input, output, format, prefix } = Object.assign(option, defaultOption)
 
   let cwd = process.cwd()
   if (!Path.isAbsolute(input)) {
