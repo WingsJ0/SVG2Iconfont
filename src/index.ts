@@ -4,15 +4,10 @@
 
 /* private */
 
-import * as Path from 'path'
-import Option, { Format } from './type/Option'
-
-const defaultOption: Option = {
-  input: './',
-  output: './',
-  format: [Format.svg, Format.ttf, Format.eot, Format.woff2, Format.woff],
-  prefix: ''
-}
+import { readInput as ReadInput } from './module/file'
+import Icon2SVG from './module/icon2svg'
+import Input from './module/input'
+import Option from './type/Option'
 
 /* public */
 
@@ -20,16 +15,11 @@ const defaultOption: Option = {
  * @name 主函数
  * @param option 选项
  */
-function main(option: Option) {
-  let { input, output, format, prefix } = Object.assign(option, defaultOption)
+async function main(option: Option) {
+  let { name, input, output, format, prefix } = Input(option)
+  let inputFiles = await ReadInput(input)
 
-  let cwd = process.cwd()
-  if (!Path.isAbsolute(input)) {
-    input = Path.resolve(cwd, input)
-  }
-  if (!Path.isAbsolute(output)) {
-    output = Path.resolve(cwd, output)
-  }
+  let svgPath = await Icon2SVG(name, inputFiles, output)
 }
 
 /* construct */

@@ -1,6 +1,6 @@
 "use strict";
 /**
- * @name Index
+ * @name 文件
  */
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -12,22 +12,25 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.readInput = void 0;
 /* private */
-const file_1 = require("./module/file");
-const icon2svg_1 = require("./module/icon2svg");
-const input_1 = require("./module/input");
+const fs_1 = require("fs");
+const Path = require("path");
 /* public */
 /**
- * @name 主函数
- * @param option 选项
+ * @name 读取输入目录
+ * @param dir 输入目录
+ * @return SVG文件数组
  */
-function main(option) {
+function readInput(dir) {
     return __awaiter(this, void 0, void 0, function* () {
-        let { name, input, output, format, prefix } = input_1.default(option);
-        let inputFiles = yield file_1.readInput(input);
-        let svgPath = yield icon2svg_1.default(name, inputFiles, output);
+        let fileNames = (yield fs_1.promises.readdir(dir)).filter(el => /\.svg$/.test(el));
+        let r = fileNames.map(el => ({
+            name: Path.basename(el, '.svg'),
+            path: Path.resolve(dir, el)
+        }));
+        return r;
     });
 }
-/* construct */
-exports.default = main;
-//# sourceMappingURL=index.js.map
+exports.readInput = readInput;
+//# sourceMappingURL=file.js.map
