@@ -24,8 +24,11 @@ async function svg2font(svgPath: string, output: string, name: string, format: F
 {
   let svg = await FS.readFile(svgPath, 'utf-8')
   let ttf = SVG2TTF(svg);
-  FS.writeFile(Path.resolve(output, `./${name}.ttf`), Buffer.from(ttf.buffer));
 
+  if (format.includes('ttf' as Format))
+  {
+    FS.writeFile(Path.resolve(output, `./${name}.ttf`), Buffer.from(ttf.buffer));
+  }
   if (format.includes('eot' as Format))
   {
     let eot = TTF2EOT(ttf)
@@ -36,16 +39,10 @@ async function svg2font(svgPath: string, output: string, name: string, format: F
     let woff = TTF2WOFF(ttf)
     FS.writeFile(Path.resolve(output, `./${name}.woff`), Buffer.from(woff.buffer));
   }
-  if (format.includes('woff' as Format))
-  {
-    let woff = TTF2WOFF(ttf)
-    FS.writeFile(Path.resolve(output, `./${name}.woff`), Buffer.from(woff.buffer));
-  }
   if (format.includes('woff2' as Format))
   {
-    // let woff2 = TTF2WOFF2(Buffer.from(ttf.buffer))
-
-    // FS.writeFile(Path.resolve(output, `./${name}.woff2`), woff2);
+    let woff2 = TTF2WOFF2(Buffer.from(ttf.buffer))
+    FS.writeFile(Path.resolve(output, `./${name}.woff2`), woff2);
   }
 }
 

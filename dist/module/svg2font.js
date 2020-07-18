@@ -30,7 +30,9 @@ function svg2font(svgPath, output, name, format) {
     return __awaiter(this, void 0, void 0, function* () {
         let svg = yield fs_1.promises.readFile(svgPath, 'utf-8');
         let ttf = SVG2TTF(svg);
-        fs_1.promises.writeFile(Path.resolve(output, `./${name}.ttf`), Buffer.from(ttf.buffer));
+        if (format.includes('ttf')) {
+            fs_1.promises.writeFile(Path.resolve(output, `./${name}.ttf`), Buffer.from(ttf.buffer));
+        }
         if (format.includes('eot')) {
             let eot = TTF2EOT(ttf);
             fs_1.promises.writeFile(Path.resolve(output, `./${name}.eot`), Buffer.from(eot.buffer));
@@ -39,12 +41,8 @@ function svg2font(svgPath, output, name, format) {
             let woff = TTF2WOFF(ttf);
             fs_1.promises.writeFile(Path.resolve(output, `./${name}.woff`), Buffer.from(woff.buffer));
         }
-        if (format.includes('woff')) {
-            let woff = TTF2WOFF(ttf);
-            fs_1.promises.writeFile(Path.resolve(output, `./${name}.woff`), Buffer.from(woff.buffer));
-        }
         if (format.includes('woff2')) {
-            let woff2 = TTF2WOFF2(ttf);
+            let woff2 = TTF2WOFF2(Buffer.from(ttf.buffer));
             fs_1.promises.writeFile(Path.resolve(output, `./${name}.woff2`), woff2);
         }
     });
