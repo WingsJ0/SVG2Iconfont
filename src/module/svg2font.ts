@@ -43,8 +43,9 @@ async function svg2font(svgPath: string, output: string, name: string, format: F
   }
   if (format.includes('woff2' as Format))
   {
-    let woff2 = TTF2WOFF2(ttf)
-    FS.writeFile(Path.resolve(output, `./${name}.woff2`), woff2);
+    // let woff2 = TTF2WOFF2(Buffer.from(ttf.buffer))
+
+    // FS.writeFile(Path.resolve(output, `./${name}.woff2`), woff2);
   }
 }
 
