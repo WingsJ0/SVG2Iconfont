@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsc --watch",
-    "build": "tsc --watch"
+    "build": "tsc --watch",
+    "test": "node test "
   },
   "bin": {
     "svg2iconfont": "./bin/www"
@@ -17,6 +18,11 @@
     "typescript": "^3.9.6"
   },
   "dependencies": {
-    "svgicons2svgfont": "^9.1.1"
+    "svg2ttf": "^5.0.0",
+    "svgicons2svgfont": "^9.1.1",
+    "ttf2eot": "^2.0.0",
+    "ttf2woff": "^2.0.2",
+    "ttf2woff2": "^3.0.0",
+    "ttf2woff2-no-gyp": "^2.0.5"
   }
 }

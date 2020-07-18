@@ -16,6 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const file_1 = require("./module/file");
 const icon2svg_1 = require("./module/icon2svg");
 const input_1 = require("./module/input");
+const svg2font_1 = require("./module/svg2font");
 /* public */
 /**
  * @name 主函数
@@ -26,6 +27,7 @@ function main(option) {
         let { name, input, output, format, prefix } = input_1.default(option);
         let inputFiles = yield file_1.readInput(input);
         let svgPath = yield icon2svg_1.default(name, inputFiles, output);
+        svg2font_1.default(svgPath, output, name, format);
     });
 }
 /* construct */

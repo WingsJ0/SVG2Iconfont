@@ -9,8 +9,14 @@ import { SVGFile } from './file'
 import FS = require('fs')
 import Path = require('path')
 
-class Glyph extends FS.ReadStream {
-  metadata: any
+interface Metadata
+{
+  unicode: Array<string | number>,
+  name: string
+}
+class Glyph extends FS.ReadStream
+{
+  metadata: Metadata = { unicode: [], name: '' }
 }
 
 /* public */
@@ -22,8 +28,10 @@ class Glyph extends FS.ReadStream {
  * @param output 输出目录
  * @return 文件路径
  */
-async function icon2svg(name: string, files: SVGFile[], output: string): Promise<string> {
-  let promise = new Promise<string>((resolve, reject) => {
+async function icon2svg(name: string, files: SVGFile[], output: string): Promise<string>
+{
+  let promise = new Promise<string>((resolve, reject) =>
+  {
     let stream = new SVGIcons2SVGFont({
       fontName: name,
       normalize: true,
@@ -33,12 +41,13 @@ async function icon2svg(name: string, files: SVGFile[], output: string): Promise
 
     stream.pipe(FS.createWriteStream(outputPath)).on('finish', () => { resolve(outputPath) }).on('error', reject)
 
-    for (let i = 0; i < files.length; i++) {
+    for (let i = 0; i < files.length; i++)
+    {
       let el = files[i]
 
       let glyph: Glyph = FS.createReadStream(el.path) as Glyph
       glyph.metadata = {
-        unicode: [`\\u${i.toString(16)}`],
+        unicode: [String.fromCodePoint(i + 1)],
         name: el.name
       }
 

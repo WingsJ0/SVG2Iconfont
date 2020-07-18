@@ -17,6 +17,10 @@ const SVGIcons2SVGFont = require("svgicons2svgfont");
 const FS = require("fs");
 const Path = require("path");
 class Glyph extends FS.ReadStream {
+    constructor() {
+        super(...arguments);
+        this.metadata = { unicode: [], name: '' };
+    }
 }
 /* public */
 /**
@@ -40,7 +44,7 @@ function icon2svg(name, files, output) {
                 let el = files[i];
                 let glyph = FS.createReadStream(el.path);
                 glyph.metadata = {
-                    unicode: [`\\u${i.toString(16)}`],
+                    unicode: [String.fromCodePoint(i + 1)],
                     name: el.name
                 };
                 stream.write(glyph);
