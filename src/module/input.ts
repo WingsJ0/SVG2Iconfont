@@ -4,6 +4,7 @@
 
 /* private */
 
+import * as _ from 'lodash'
 import * as Path from 'path'
 import Option, { Format } from '../type/Option'
 
@@ -45,7 +46,7 @@ function input(option: Option): Option {
     throw new Error('参数 prefix 错误')
   }
 
-  option = Object.assign({}, defaultOption, option)
+  _.defaults(option, defaultOption)
 
   let cwd = process.cwd()
   if (!Path.isAbsolute(option.input)) {

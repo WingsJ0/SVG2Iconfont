@@ -14,10 +14,12 @@
   "author": "WingsJ",
   "license": "ISC",
   "devDependencies": {
+    "@types/lodash": "^4.14.158",
     "@types/node": "^14.0.23",
     "typescript": "^3.9.6"
   },
   "dependencies": {
+    "lodash": "^4.17.19",
     "svg2ttf": "^5.0.0",
     "svgicons2svgfont": "^9.1.1",
     "ttf2eot": "^2.0.0",

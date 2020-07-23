@@ -13,6 +13,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 /* private */
+const clear_1 = require("./module/clear");
 const file_1 = require("./module/file");
 const icon2svg_1 = require("./module/icon2svg");
 const input_1 = require("./module/input");
@@ -27,7 +28,8 @@ function main(option) {
         let { name, input, output, format, prefix } = input_1.default(option);
         let inputFiles = yield file_1.readInput(input);
         let svgPath = yield icon2svg_1.default(name, inputFiles, output);
-        svg2font_1.default(svgPath, output, name, format);
+        let result = yield svg2font_1.default(svgPath, output, name, format);
+        clear_1.default(result, format);
     });
 }
 /* construct */

@@ -25,26 +25,49 @@ const TTF2WOFF2 = require("ttf2woff2");
  * @param svgPath SVG路径
  * @param output 输出路径
  * @param name 字体名称
+ * @return 文件路径对象
  */
 function svg2font(svgPath, output, name, format) {
     return __awaiter(this, void 0, void 0, function* () {
         let svg = yield fs_1.promises.readFile(svgPath, 'utf-8');
         let ttf = SVG2TTF(svg);
+        let promises = [];
+        let result = {
+            svg: svgPath,
+            ttf: null,
+            eot: null,
+            woff: null,
+            woff2: null
+        };
         if (format.includes('ttf')) {
-            fs_1.promises.writeFile(Path.resolve(output, `./${name}.ttf`), Buffer.from(ttf.buffer));
+            let path = Path.resolve(output, `./${name}.ttf`);
+            let promise = fs_1.promises.writeFile(path, Buffer.from(ttf.buffer));
+            promises.push(promise);
+            result.ttf = path;
         }
         if (format.includes('eot')) {
             let eot = TTF2EOT(ttf);
-            fs_1.promises.writeFile(Path.resolve(output, `./${name}.eot`), Buffer.from(eot.buffer));
+            let path = Path.resolve(output, `./${name}.eot`);
+            let promise = fs_1.promises.writeFile(path, Buffer.from(eot.buffer));
+            promises.push(promise);
+            result.ttf = path;
         }
         if (format.includes('woff')) {
             let woff = TTF2WOFF(ttf);
-            fs_1.promises.writeFile(Path.resolve(output, `./${name}.woff`), Buffer.from(woff.buffer));
+            let path = Path.resolve(output, `./${name}.woff`);
+            let promise = fs_1.promises.writeFile(path, Buffer.from(woff.buffer));
+            promises.push(promise);
+            result.woff = path;
         }
         if (format.includes('woff2')) {
             let woff2 = TTF2WOFF2(Buffer.from(ttf.buffer));
-            fs_1.promises.writeFile(Path.resolve(output, `./${name}.woff2`), woff2);
+            let path = Path.resolve(output, `./${name}.woff2`);
+            let promise = fs_1.promises.writeFile(path, woff2);
+            promises.push(promise);
+            result.woff2 = path;
         }
+        yield promises;
+        return result;
     });
 }
 /* construct */
