@@ -8,6 +8,7 @@
  * @name 结果
  */
 interface Result {
+  [key: string]: string | null
   svg: string | null,
   ttf: string | null,
   eot: string | null,

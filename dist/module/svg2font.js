@@ -50,7 +50,7 @@ function svg2font(svgPath, output, name, format) {
             let path = Path.resolve(output, `./${name}.eot`);
             let promise = fs_1.promises.writeFile(path, Buffer.from(eot.buffer));
             promises.push(promise);
-            result.ttf = path;
+            result.eot = path;
         }
         if (format.includes('woff')) {
             let woff = TTF2WOFF(ttf);

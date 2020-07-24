@@ -48,7 +48,7 @@ async function svg2font(svgPath: string, output: string, name: string, format: F
     let promise = FS.writeFile(path, Buffer.from(eot.buffer));
 
     promises.push(promise)
-    result.ttf = path
+    result.eot = path
   }
   if (format.includes('woff' as Format)) {
     let woff = TTF2WOFF(ttf)
