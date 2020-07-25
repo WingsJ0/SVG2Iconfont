@@ -1,1 +1,0 @@
-require('../dist/index').default({ input: './test/svg', output: './test/font' })
