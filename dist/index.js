@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /* private */
 const clear_1 = require("./module/clear");
 const file_1 = require("./module/file");
+const generate_css_1 = require("./module/generate-css");
 const icon2svg_1 = require("./module/icon2svg");
 const input_1 = require("./module/input");
 const svg2font_1 = require("./module/svg2font");
@@ -30,6 +31,7 @@ function main(option) {
         let svgPath = yield icon2svg_1.default(name, inputFiles, output);
         let result = yield svg2font_1.default(svgPath, output, name, format);
         clear_1.default(result, format);
+        generate_css_1.default(name, output, format, prefix, inputFiles);
     });
 }
 /* construct */

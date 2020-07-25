@@ -13,9 +13,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 /* private */
-const SVGIcons2SVGFont = require("svgicons2svgfont");
 const FS = require("fs");
 const Path = require("path");
+const SVGIcons2SVGFont = require("svgicons2svgfont");
+const config_1 = require("../config");
 class Glyph extends FS.ReadStream {
     constructor() {
         super(...arguments);
@@ -44,7 +45,7 @@ function icon2svg(name, files, output) {
                 let el = files[i];
                 let glyph = FS.createReadStream(el.path);
                 glyph.metadata = {
-                    unicode: [String.fromCodePoint(i + 1)],
+                    unicode: [String.fromCodePoint(i + config_1.unicodeStart)],
                     name: el.name
                 };
                 stream.write(glyph);

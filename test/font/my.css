@@ -1,0 +1,132 @@
+
+@font-face {
+  font-family: my;
+  src: url("my.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.my.arrow-bottom,.my.arrow-more,.my.arrow-right,.my.back,.my.bangzhu,.my.check,.my.checked_circle,.my.checked_square,.my.dizhidingwei,.my.edit,.my.email,.my.employee_intro,.my.fenxiang,.my.fenxiang1,.my.guanbi,.my.history,.my.huiyuan,.my.icon-down,.my.icon-up,.my.pen,.my.phone,.my.previewleft,.my.related,.my.renzheng,.my.shoucang1,.my.shoucang2,.my.triangle-down,.my.unchecked_circle,.my.unchecked_square {
+  font-family: "my" !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.my.arrow-bottom::before{
+  content:'\e610';
+}
+
+.my.arrow-more::before{
+  content:'\e611';
+}
+
+.my.arrow-right::before{
+  content:'\e612';
+}
+
+.my.back::before{
+  content:'\e613';
+}
+
+.my.bangzhu::before{
+  content:'\e614';
+}
+
+.my.check::before{
+  content:'\e615';
+}
+
+.my.checked_circle::before{
+  content:'\e616';
+}
+
+.my.checked_square::before{
+  content:'\e617';
+}
+
+.my.dizhidingwei::before{
+  content:'\e618';
+}
+
+.my.edit::before{
+  content:'\e619';
+}
+
+.my.email::before{
+  content:'\e61a';
+}
+
+.my.employee_intro::before{
+  content:'\e61b';
+}
+
+.my.fenxiang::before{
+  content:'\e61c';
+}
+
+.my.fenxiang1::before{
+  content:'\e61d';
+}
+
+.my.guanbi::before{
+  content:'\e61e';
+}
+
+.my.history::before{
+  content:'\e61f';
+}
+
+.my.huiyuan::before{
+  content:'\e620';
+}
+
+.my.icon-down::before{
+  content:'\e621';
+}
+
+.my.icon-up::before{
+  content:'\e622';
+}
+
+.my.pen::before{
+  content:'\e623';
+}
+
+.my.phone::before{
+  content:'\e624';
+}
+
+.my.previewleft::before{
+  content:'\e625';
+}
+
+.my.related::before{
+  content:'\e626';
+}
+
+.my.renzheng::before{
+  content:'\e627';
+}
+
+.my.shoucang1::before{
+  content:'\e628';
+}
+
+.my.shoucang2::before{
+  content:'\e629';
+}
+
+.my.triangle-down::before{
+  content:'\e62a';
+}
+
+.my.unchecked_circle::before{
+  content:'\e62b';
+}
+
+.my.unchecked_square::before{
+  content:'\e62c';
+}
+

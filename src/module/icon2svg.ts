@@ -4,10 +4,11 @@
 
 /* private */
 
+import * as FS from 'fs'
+import * as Path from 'path'
 import * as SVGIcons2SVGFont from 'svgicons2svgfont'
+import { unicodeStart } from '../config'
 import { SVGFile } from './file'
-import FS = require('fs')
-import Path = require('path')
 
 interface Metadata
 {
@@ -47,7 +48,7 @@ async function icon2svg(name: string, files: SVGFile[], output: string): Promise
 
       let glyph: Glyph = FS.createReadStream(el.path) as Glyph
       glyph.metadata = {
-        unicode: [String.fromCodePoint(i + 1)],
+        unicode: [String.fromCodePoint(i + unicodeStart)], // unicode从1开始
         name: el.name
       }
 
