@@ -1,8 +1,8 @@
 {
   "name": "svg2iconfont",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "SVG转Iconfont工具",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc"
