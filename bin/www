@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
 let argv = require('yargs').argv
-let { name, input, output, format, prefix } = argv
+let { name, n, input, i, output, o, format, f, prefix, p } = argv
 
 let main = require('../dist/index.js').default
 main({
-  name,
-  input,
-  output,
-  format: format && format.split(',') || [],
-  prefix
+  name: name || n,
+  input: input || i,
+  output: output || o,
+  format: (format || f) && (format || f).split(',') || [],
+  prefix: prefix || p
 })
 
