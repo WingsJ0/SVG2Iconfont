@@ -43,6 +43,7 @@ const classTemplate = `
  * @param output 输出地址
  * @param format 格式
  * @param prefix 类前缀
+ * @param files 文件列表
  */
 async function generateCSS(name: string, output: string, format: Format[] | string[], prefix: string, files: SVGFile[])
 {

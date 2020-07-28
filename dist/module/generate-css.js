@@ -46,6 +46,7 @@ const classTemplate = `
  * @param output 输出地址
  * @param format 格式
  * @param prefix 类前缀
+ * @param files 文件列表
  */
 function generateCSS(name, output, format, prefix, files) {
     return __awaiter(this, void 0, void 0, function* () {
