@@ -26,6 +26,7 @@ const commonTemplate = `
   font-family: "%name%" !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
 }
 `
 const classTemplate = `
