@@ -24,7 +24,7 @@ woff 和 eot，用逗号分隔。<br>
 示例：
 
 ```sh
-svg2iconfont --name iconfont --input ./svg --output ./font --format svg,ttf,woff2,woff,eot --prefix iconfont
+svg2iconfont --name iconfont --input ./svg --output ./font --format svg,ttf,woff2,woff,eot --prefix iconfont-
 ```
 
 注意：
