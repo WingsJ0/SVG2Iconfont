@@ -1,5 +1,5 @@
 {
-  "name": "svg2iconfont",
+  "name": "@wings-j/svg2iconfont",
   "version": "1.1.3",
   "description": "SVG转Iconfont工具",
   "main": "./dist/index.js",
@@ -11,7 +11,7 @@
     "svg2iconfont": "./bin/www"
   },
   "author": "WingsJ",
-  "license": "ISC",
+  "license": "GPL-3.0-or-later",
   "devDependencies": {
     "@types/lodash": "^4.14.158",
     "@types/node": "^14.0.23",
